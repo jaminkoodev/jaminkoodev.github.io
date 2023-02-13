@@ -15,26 +15,57 @@ last_modified_at: 2023-02-13
 ---
 
 # lodash의 `cloneDeep` 과 `cloneDeepWith`의 차이
-lodash 라이브러리에서는 객체의 복사를 위해 `cloneDeep`과 `cloneDeepWith` 두 가지 메서드를 제공합니다.
+`lodash`는 프로그래밍 작업에 필요한 일반적인 유틸리티 기능을 제공하는 JavaScript 라이브러리입니다. 
+
+`cloneDeep`과 `cloneDeepWith`는 두 개의 `lodash` 라이브러리 함수로, 객체와 배열의 깊은 복사를 만드는 데 사용됩니다.
 
 ## cloneDeep
-`cloneDeep` 메서드는 주어진 객체의 깊은 복사본을 반환합니다. 깊은 복사는 객체 내의 모든 값이 새로운 값으로 복사되어, 원래 객체와 별개의 객체가 생성되는 것을 의미합니다.
+`cloneDeep`은 객체 또는 배열의 모든 속성과 요소를 재귀적으로 새 객체 또는 배열로 복사하여 객체 또는 배열의 깊은 복사본을 만드는 데 사용됩니다. 
 
-예를 들어, 다음 코드에서 originalObject와 clone은 서로 다른 객체입니다
+이 함수는 숫자, 문자열, 불리언과 같은 기본 데이터 유형의 속성 및 요소는 얕은 복사만 할 것입니다. 하지만 원본 객체 또는 배열에 포함된 객체 또는 배열은 깊은 복사가 됩니다.
 
 ```javascript
-const originalObject = { a: 1, b: { c: 2 } };
-const clone = _.cloneDeep(originalObject);
+const _ = require('lodash');
 
-clone.a = 2;
-console.log(originalObject.a); // 1
+const original = {
+  a: 1,
+  b: {
+    c: 2
+  },
+  d: [3, 4, 5]
+};
+
+const copied = _.cloneDeep(original);
+
+console.log(copied);
+// 출력: { a: 1, b: { c: 2 }, d: [ 3, 4, 5 ] }
 ```
 
 ## cloneDeepWith
-`cloneDeepWith` 메서드는 주어진 객체의 깊은 복사본을 반환하지만, 특정 값의 복사 로직을 사용자 정의 함수를 통해 지정할 수 있습니다.
+`cloneDeepWith`은 `cloneDeep`과 비슷하지만 특정 속성 및 요소를 복제하는 데 필요한 고객 정의 함수를 제공하는 것을 허용합니다. 
 
-예를 들어, 다음 코드에서 originalArray와 clone은 서로 다른 배열입니다. 그러나 clone 배열의 첫 번째 값은 originalArray의 첫 번째 값과 같은 객체입니다:
+이는 특정 속성이나 요소를 적절하게 복제하는 데 필요한 사용자 정의 논리가 있는 경우에 유용할 수 있습니다.
 
 ```javascript
-const originalArray = [{ a:
+const _ = require('lodash');
+
+const original = {
+  a: 1,
+  b: {
+    c: 2
+  },
+  d: [3, 4, 5]
+};
+
+const customizer = (value) => {
+  if (_.isNumber(value)) {
+    return value * 2;
+  }
+};
+
+const copied = _.cloneDeepWith(original, customizer);
+
+console.log(copied);
+// 출력: { a: 2, b: { c: 4 }, d: [ 6, 8, 10 ] }
 ```
+이 예제에서는 `cloneDeepWith` 함수에 `customizer` 함수가 제공되어, 원본 객체에 포함된 각 숫자의 값을 두 배로 복사합니다. 결과적으로 복사된 객체의 모든 숫자 값은 2배가 됩니다.
