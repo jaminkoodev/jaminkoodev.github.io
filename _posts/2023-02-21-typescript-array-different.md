@@ -1,6 +1,6 @@
 ---
-title:  "[TypeScript] type[]과 array<type>의 차이"
-excerpt: "TypeScript의 type[]과 array<type>의 차이에 대해 알아보자"
+title:  "[TypeScript] type[]과 `array<type>`의 차이"
+excerpt: "TypeScript의 type[]과 `array<type>`의 차이에 대해 알아보자"
 
 categories:
   - TypeScript
