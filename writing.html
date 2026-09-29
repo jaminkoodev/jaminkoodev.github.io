@@ -1,0 +1,22 @@
+---
+layout: default
+title: Writing
+permalink: /writing/
+---
+
+<section class="interior-hero shell">
+  <p class="section-kicker">WRITING / ARCHIVE</p>
+  <h1>Notes from earlier work.</h1>
+  <p>Short technical notes published in 2023. The selected projects on the <a href="/">home page</a> reflect my current focus.</p>
+</section>
+
+<section class="writing-list shell" aria-label="Articles">
+  {% for post in site.posts %}
+    {% unless post.title == "You're up and running!" %}
+      <article class="writing-item">
+        <div><time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%b %d, %Y' }}</time><h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2></div>
+        <span aria-hidden="true">↗</span>
+      </article>
+    {% endunless %}
+  {% endfor %}
+</section>

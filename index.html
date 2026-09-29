@@ -1,18 +1,71 @@
 ---
 layout: default
+title: Portfolio
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<section class="hero shell" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="eyebrow-line"></span> Backend &amp; Data Systems Engineer</p>
+    <h1 id="hero-title">Reliable systems for <em>data and ML work.</em></h1>
+    <p class="hero-lead">I build practical software around data pipelines, AI workloads, and the points where systems need to recover, explain themselves, and keep running.</p>
+    <p class="hero-context">M.S. student in Convergence Intelligence &amp; Big Data at Dankook University. Background in backend engineering and Kafka-based streaming systems.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
+      <a class="button button-secondary" href="https://github.com/jaminkoodev">GitHub profile <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <aside class="hero-panel" aria-label="Engineering focus">
+    <div class="panel-topline"><span class="pulse-dot" aria-hidden="true"></span> CURRENT FOCUS</div>
+    <div class="focus-row"><span class="focus-index">01</span><div><strong>ML systems &amp; MLOps</strong><p>Reproducible, operable paths from data to useful outputs.</p></div></div>
+    <div class="focus-row"><span class="focus-index">02</span><div><strong>Streaming &amp; data systems</strong><p>Explicit contracts, failure handling, and observable state.</p></div></div>
+    <div class="focus-row"><span class="focus-index">03</span><div><strong>Research engineering</strong><p>Careful validation and evidence behind technical choices.</p></div></div>
+    <div class="panel-footnote">Systems should be understandable when they succeed—and when they fail.</div>
+  </aside>
+</section>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+<section class="work-section" id="work" aria-labelledby="work-title">
+  <div class="shell">
+    <div class="section-heading">
+      <div><p class="section-kicker">01 / SELECTED WORK</p><h2 id="work-title">Built around real system constraints.</h2></div>
+      <p>Portable public projects with readable architecture, explicit trade-offs, and tests.</p>
+    </div>
+    <div class="project-grid">
+      <article class="project-card project-featured">
+        <div class="project-topline"><span class="project-number">01</span><span class="project-category">STT · Reliability · Python</span></div>
+        <div class="project-content">
+          <div><h3>STT Ingest Runtime</h3><p>A file-based job runtime that handles the work around speech-to-text: accepting stable inputs, avoiding duplicate jobs, claiming work, and recovering from failures.</p></div>
+          <ul class="project-points" aria-label="Key capabilities"><li>Queue → processing → done / failed</li><li>Atomic job claims &amp; crash recovery</li><li>Inspectable filesystem state</li></ul>
+        </div>
+        <a class="project-link" href="https://github.com/jaminkoodev/stt-ingest-runtime">Explore repository <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="project-card">
+        <div class="project-topline"><span class="project-number">02</span><span class="project-category">Developer Tools · Bun · React</span></div>
+        <h3>Agent Hub Dashboard</h3>
+        <p>A local view of coding-agent sessions and orchestration state, with filesystem discovery, WebSocket updates, and optional multi-machine aggregation.</p>
+        <a class="project-link" href="https://github.com/jaminkoodev/agent-hub-dashboard">Explore repository <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="project-card">
+        <div class="project-topline"><span class="project-number">03</span><span class="project-category">Transcription · TypeScript</span></div>
+        <h3>Transcript Timeline Core</h3>
+        <p>Deterministic transcript segmentation that preserves exact source offsets, groups adjacent timeline parts, and handles human-readable time values.</p>
+        <a class="project-link" href="https://github.com/jaminkoodev/transcript-timeline-core">Explore repository <span aria-hidden="true">↗</span></a>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
+<section class="approach-section shell" aria-labelledby="approach-title">
+  <div class="section-heading"><div><p class="section-kicker">02 / APPROACH</p><h2 id="approach-title">How I think about systems.</h2></div></div>
+  <div class="approach-grid">
+    <div class="approach-item"><span class="approach-icon" aria-hidden="true">↳</span><h3>Make state visible</h3><p>Prefer contracts and artifacts an operator can inspect when a pipeline behaves unexpectedly.</p></div>
+    <div class="approach-item"><span class="approach-icon" aria-hidden="true">↻</span><h3>Plan for recovery</h3><p>Model retries, partial results, and failed work as normal states rather than afterthoughts.</p></div>
+    <div class="approach-item"><span class="approach-icon" aria-hidden="true">✓</span><h3>Test the boundary</h3><p>Use focused tests to protect data shape, state transitions, and assumptions between components.</p></div>
+  </div>
+</section>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<section class="closing-section">
+  <div class="shell closing-grid">
+    <div><p class="section-kicker">03 / BACKGROUND</p><h2>Engineering rigor, applied to ML and data.</h2></div>
+    <div><p>My work started in backend systems and Kafka-based streaming. I am now extending that experience through graduate study toward ML systems, MLOps, and data engineering. My research interests are evolving; the projects here show the engineering problems I have chosen to work on so far.</p><div class="closing-links"><a href="{{ '/about/' | relative_url }}">More about me <span aria-hidden="true">↗</span></a><a href="{{ '/writing/' | relative_url }}">Earlier writing <span aria-hidden="true">↗</span></a></div></div>
+  </div>
+</section>

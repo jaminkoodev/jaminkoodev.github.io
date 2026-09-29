@@ -1,0 +1,28 @@
+name: Site build
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/jekyll-build-pages@v1
+      - name: Check key pages
+        run: |
+          test -f _site/index.html
+          test -f _site/writing/index.html
+          test -f _site/about/index.html
+          grep -q 'stt-ingest-runtime' _site/index.html
+          grep -q 'agent-hub-dashboard' _site/index.html
+          grep -q 'transcript-timeline-core' _site/index.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: _site

@@ -4,20 +4,19 @@ title: About
 permalink: /about/
 ---
 
-## 안녕하세요. JAVA를 개발하는 구자민입니다.
+I am a backend and data systems engineer pursuing an M.S. in Convergence Intelligence & Big Data at Dankook University. My professional background includes backend engineering and Kafka-based streaming data processing.
 
-안녕하세요. 저는 2년 경력 자바개발자로 데이터 처리 전문 IT 기업에서 JAVA 개발자로 커리어를 시작하였고 스스로의 능동적인 성장을 중요하게 생각합니다. 
+I am interested in the operational side of ML and data systems: how workloads are scheduled, how state remains inspectable, and how failures are detected and recovered. I value reproducible workflows and documentation that explains the reasons behind a design.
 
-현재 Seeds 청년 코딩 동아리에서 활동하고 있습니다.
+## Current interests
 
+- ML systems and MLOps
+- Streaming and data pipelines
+- Reliability and observability in AI workloads
+- Research engineering and careful validation
 
-# ⚒️ Skills
-- Spring Boot
-- JAVA
-- Vue
-- NodeJs
-- MariaDB
+The projects on the [home page](/) are public, portable examples of this work. They do not represent a fixed thesis topic.
 
-### Contact me
+## Contact
 
-[jmkoo.dev@gmail.com](mailto:jmkoo.dev@gmail.com)
+[Email](mailto:jmkoo.dev@gmail.com) · [GitHub](https://github.com/jaminkoodev)

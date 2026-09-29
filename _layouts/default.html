@@ -1,51 +1,43 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
     {% include meta.html %}
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-
-    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+    <title>{% if page.title and page.title != 'Portfolio' %}{{ page.title }} · {% endif %}{{ site.name }}</title>
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+    <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} — writing" href="{{ '/feed.xml' | relative_url }}">
   </head>
-
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="Jamin Koo, home">
+          <span class="brand-mark" aria-hidden="true">JK</span>
+          <span>Jamin Koo<span class="brand-dot">.</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="{{ '/' | relative_url }}#work">Work</a>
+          <a href="{{ '/writing/' | relative_url }}">Writing</a>
+          <a href="{{ '/about/' | relative_url }}">About</a>
+          <a class="nav-github" href="https://github.com/jaminkoodev">GitHub <span aria-hidden="true">↗</span></a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
+    <main id="main" class="site-main">{{ content }}</main>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <div>
+          <strong>Jamin Koo</strong>
+          <span>Backend · Data Systems · ML Systems</span>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:jmkoo.dev@gmail.com">Email</a>
+          <a href="https://github.com/jaminkoodev">GitHub</a>
+          <a href="{{ '/writing/' | relative_url }}">Writing</a>
+        </div>
       </div>
-    </div>
-
-    {% include analytics.html %}
+    </footer>
   </body>
 </html>
